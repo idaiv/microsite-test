@@ -1,0 +1,35 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Pimcore Studio - Next-generation content management with live editing and omnichannel experiences" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    
+    <!-- Import Tailwind CSS -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="bg-white text-gray-900">
+    <slot />
+  </body>
+</html>
