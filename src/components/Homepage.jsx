@@ -7,14 +7,16 @@ import ThirdContainer from './sections/ThirdContainer';
 
 const Homepage = () => {
   return (
-    <div className="min-h-screen bg-slate-950 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden" style={{backgroundColor: '#14041F'}}>
       {/* Aurora Background Animation */}
-      <Aurora
-        colorStops={["#7A3AD4", "#37D9F3", "#722ED1"]}
-        blend={1}
-        amplitude={1.0}
-        speed={0.65}
-      />
+      <div className="fixed inset-0 w-full h-full pointer-events-none">
+        <Aurora
+          colorStops={["#5717AD", "#37D9F3", "#722ED1"]}
+          blend={0.5}
+          amplitude={1.0}
+          speed={0.6}
+        />
+      </div>
       
       {/* Main Content */}
       <div className="relative z-10">

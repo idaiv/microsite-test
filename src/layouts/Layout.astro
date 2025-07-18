@@ -4,6 +4,8 @@ export interface Props {
   description?: string;
 }
 
+import '../styles/global.css';
+
 const { title, description = "Pimcore Studio - Next-generation content management with live editing and omnichannel experiences" } = Astro.props;
 ---
 
@@ -23,13 +25,10 @@ const { title, description = "Pimcore Studio - Next-generation content managemen
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/public/logo.svg" />
     <title>{title}</title>
-    
-    <!-- Import Tailwind CSS -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
-  <body class="bg-white text-gray-900">
+  <body class="text-gray-900" style="background-color: #14041F;">
     <slot />
   </body>
 </html>
