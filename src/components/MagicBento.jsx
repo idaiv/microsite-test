@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
 
-const DEFAULT_PARTICLE_COUNT = 12;
-const DEFAULT_SPOTLIGHT_RADIUS = 300;
+const DEFAULT_PARTICLE_COUNT = 6;
+const DEFAULT_SPOTLIGHT_RADIUS = 250;
 const DEFAULT_GLOW_COLOR = "114, 46, 209";
 const MOBILE_BREAKPOINT = 768;
 
@@ -101,7 +101,7 @@ const MagicBento = ({
         scale: 0,
         opacity: 0,
         duration: 0.3,
-        ease: "back.in(1.7)",
+        ease: "power2.in",
         onComplete: () => {
           particle.parentNode?.removeChild(particle);
         },
@@ -128,7 +128,7 @@ const MagicBento = ({
         gsap.fromTo(
           clone,
           { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.7)" }
+          { scale: 1, opacity: 1, duration: 0.2, ease: "power2.out" }
         );
 
         gsap.to(clone, {
@@ -148,7 +148,7 @@ const MagicBento = ({
           repeat: -1,
           yoyo: true,
         });
-      }, index * 100);
+      }, index * 50);
 
       timeoutsRef.current.push(timeoutId);
     });
@@ -171,15 +171,15 @@ const MagicBento = ({
         gsap.to(element, {
           rotateX: 5,
           rotateY: 5,
-          duration: 0.3,
-          ease: "power2.out",
+          duration: 0.2,
+          ease: "none",
           transformPerspective: 1000,
         });
       }
 
       if (enableBorderGlow) {
         gsap.to(element, {
-          duration: 0.3,
+          duration: 0.2,
           boxShadow: `0 0 30px rgba(${glowColor}, 0.1), 0 0 60px rgba(${glowColor}, 0.05)`,
           ease: "power2.out"
         });
@@ -195,8 +195,8 @@ const MagicBento = ({
         gsap.to(element, {
           rotateX: 0,
           rotateY: 0,
-          duration: 0.3,
-          ease: "power2.out",
+          duration: 0.2,
+          ease: "none",
         });
       }
 
@@ -204,8 +204,8 @@ const MagicBento = ({
         gsap.to(element, {
           x: 0,
           y: 0,
-          duration: 0.3,
-          ease: "power2.out",
+          duration: 0.2,
+          ease: "none",
         });
       }
 
@@ -234,8 +234,8 @@ const MagicBento = ({
         gsap.to(element, {
           rotateX,
           rotateY,
-          duration: 0.1,
-          ease: "power2.out",
+          duration: 0.05,
+          ease: "none",
           transformPerspective: 1000,
         });
       }
@@ -247,14 +247,14 @@ const MagicBento = ({
         magnetismAnimationRef.current = gsap.to(element, {
           x: magnetX,
           y: magnetY,
-          duration: 0.3,
-          ease: "power2.out",
+          duration: 0.2,
+          ease: "none",
         });
       }
 
       if (enableSpotlight && spotlightRef.current) {
         gsap.to(spotlightRef.current, {
-          duration: 0.3,
+          duration: 0.2,
           left: x - spotlightRadius / 2,
           top: y - spotlightRadius / 2,
           ease: "power2.out"
@@ -302,7 +302,7 @@ const MagicBento = ({
           scale: 1,
           opacity: 0,
           duration: 0.8,
-          ease: "power2.out",
+          ease: "none",
           onComplete: () => ripple.remove(),
         }
       );
@@ -374,7 +374,7 @@ const MagicBento = ({
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
             z-index: 1;
             opacity: ${enableBorderGlow ? 'var(--glow-intensity, 0)' : '0'};
           }
