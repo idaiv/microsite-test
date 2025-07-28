@@ -27,18 +27,20 @@
   transform-origin: top center;
   will-change: transform, filter;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   border-radius: 40px;
   box-sizing: border-box;
-  /* Improve mobile performance */
+  /* Force GPU acceleration */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
+  /* Prevent flickering */
+  -webkit-perspective: 1000;
+  perspective: 1000;
 }
 
-.scroll-stack-card.rounded-3xl {
-  border-radius: 40px;
-}
 
 .scroll-stack-card-content {
   width: 100%;

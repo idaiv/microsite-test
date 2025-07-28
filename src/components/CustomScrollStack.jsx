@@ -118,7 +118,8 @@ const CustomScrollStack = () => {
         baseScale={0.92}
         rotationAmount={0}
         blurAmount={1.5}
-        onStackComplete={() => console.log('Stack completed!')}
+        scrollZoneMultiplier={4}
+        onStackComplete={() => {}}
       >
         <ScrollStackItem itemClassName="rounded-3xl" style={{ backgroundColor: cardBackgrounds[0] }}>
           <div className="w-full">
