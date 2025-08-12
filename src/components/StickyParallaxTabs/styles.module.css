@@ -1,0 +1,364 @@
+/* Main parallax section - scroll hijacking */
+.parallaxSection {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* When locked, the container becomes fixed */
+.sectionContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+.sectionContainer.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* Left Fixed Navigation */
+.leftNavigation {
+  width: 400px;
+  height: 100%;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.navContent {
+  padding: 80px 0 0 120px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navTitle {
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 48px 0;
+  line-height: 1.2;
+}
+
+.tabButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tabButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 32px 24px;
+  background: transparent;
+  border: none;
+  border-left: 4px solid transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0 8px 8px 0;
+  min-height: 80px;
+}
+
+.tabPrefix {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.tabMain {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.tabButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(110, 191, 244, 0.5);
+}
+
+.tabButton:hover .tabPrefix {
+  color: rgba(110, 191, 244, 0.8);
+}
+
+.tabButton:hover .tabMain {
+  color: #6EBFF4;
+}
+
+.tabButton.active {
+  background: rgba(110, 191, 244, 0.1);
+  border-left-color: #6EBFF4;
+}
+
+.tabButton.active .tabPrefix {
+  color: #6EBFF4;
+}
+
+.tabButton.active .tabMain {
+  color: #6EBFF4;
+}
+
+/* Right Content Container */
+.contentContainer {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Elements */
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floatingShape {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(114, 46, 209, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Content Pages */
+.contentPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.contentInner {
+  max-width: 900px;
+  width: 100%;
+}
+
+.pageTitle {
+  color: white;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 48px 0;
+  line-height: 1.2;
+  transition: all 0.5s ease-out;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cardGrid.fourCards {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .cardGrid.fourCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(114, 46, 209, 0.3);
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+.card p {
+  color: #E8E4EF;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Scroll Progress Indicator */
+.progressIndicator {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+}
+
+.progressDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.progressDot.active {
+  background: #722ed1;
+  transform: scale(1.5);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .leftNavigation {
+    width: 350px;
+  }
+  
+  .navContent {
+    padding: 60px 0 0 60px;
+  }
+  
+  .contentPage {
+    padding: 40px 0;
+  }
+  
+  .pageTitle {
+    font-size: 36px;
+  }
+  
+  .card {
+    padding: 24px;
+  }
+  
+  .floatingShape {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sectionContainer {
+    flex-direction: column;
+  }
+  
+  .leftNavigation {
+    width: 100%;
+    height: auto;
+    background: transparent;
+  }
+  
+  .navContent {
+    padding: 30px 0 0 40px;
+    height: auto;
+    justify-content: flex-start;
+  }
+  
+  .navTitle {
+    font-size: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .tabButtons {
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .tabButton {
+    flex: 1;
+    padding: 12px 16px;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .tabButton:hover,
+  .tabButton.active {
+    border-left: none;
+    border-bottom-color: #722ed1;
+    background: rgba(114, 46, 209, 0.2);
+  }
+  
+  .contentContainer {
+    height: calc(100vh - 120px); /* Account for nav height */
+  }
+  
+  .contentPage {
+    padding: 40px 0;
+  }
+  
+  .pageTitle {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .card h3 {
+    font-size: 18px;
+  }
+  
+  .card p {
+    font-size: 14px;
+  }
+  
+  .floatingShape {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .progressIndicator {
+    right: 10px;
+  }
+}
