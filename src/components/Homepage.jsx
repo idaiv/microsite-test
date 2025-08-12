@@ -1,7 +1,7 @@
 import React from 'react';
 import Aurora from './Aurora';
 import HeaderSection from './sections/HeaderSection';
-import CustomScrollStack from './CustomScrollStack';
+import StickyParallaxTabs from './StickyParallaxTabs/StickyParallaxTabs';
 import MainContainer from './sections/MainContainer';
 import SecondContainer from './sections/SecondContainer';
 import ThirdContainer from './sections/ThirdContainer';
@@ -22,7 +22,7 @@ const Homepage = () => {
       {/* Main Content */}
       <div className="relative z-10">
         <HeaderSection />
-        <CustomScrollStack />
+        <StickyParallaxTabs />
         <MainContainer />
         <SecondContainer />
         <ThirdContainer />

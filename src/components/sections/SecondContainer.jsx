@@ -1,5 +1,4 @@
 import React from 'react';
-import ConfigCard from '../ConfigCard';
 import SectionTitle from '../SectionTitle';
 import MagicBento from '../MagicBento';
 
@@ -10,20 +9,20 @@ const SecondContainer = () => {
         <SectionTitle>Much more than a new UI</SectionTitle>
         
         {/* Top Row - Clutter-Free Design + Mercure Cards */}
-        <div className="grid md:grid-cols-3 gap-4 mb-4">
+        <div className="grid md:grid-cols-12 gap-4 mb-4">
           {/* Clutter-Free Design Card */}
           <MagicBento
-            textAutoHide={true}
-            enableStars={true}
+            textAutoHide={false}
+            enableStars={false}
             enableSpotlight={true}
             enableBorderGlow={true}
-            enableTilt={false}
-            enableMagnetism={true}
+            enableTilt={true}
+            enableMagnetism={false}
             clickEffect={false}
             spotlightRadius={350}
-            particleCount={12}
-            glowColor="114, 46, 209"
-            className="backdrop-blur-md rounded-2xl p-6 transition-all duration-300"
+            particleCount={4}
+            glowColor="132, 0, 255"
+            className="md:col-span-8 backdrop-blur-md rounded-2xl p-6 transition-all duration-300"
           >
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-white mb-2">Clutter-Free Design</h3>
@@ -47,40 +46,46 @@ const SecondContainer = () => {
           
           {/* Mercure + RTK Query Cards */}
           <MagicBento
-            textAutoHide={true}
-            enableStars={true}
+            textAutoHide={false}
+            enableStars={false}
             enableSpotlight={true}
             enableBorderGlow={true}
-            enableTilt={false}
-            enableMagnetism={true}
+            enableTilt={true}
+            enableMagnetism={false}
             clickEffect={false}
             spotlightRadius={350}
-            particleCount={12}
-            glowColor="114, 46, 209"
-            className="backdrop-blur-md rounded-2xl p-6 transition-all duration-300"
+            particleCount={4}
+            glowColor="132, 0, 255"
+            className="md:col-span-2 bg-slate-800/50 backdrop-blur-md rounded-2xl border border-white/10 p-6 transition-all duration-300 flex items-center justify-center group"
           >
-            <div className="mb-4">
-              <h4 className="text-lg font-semibold text-white mb-2">Mercure + RTK Query</h4>
-              <p className="text-white/70 text-sm">Real-time updates</p>
+            <div className="text-center">
+              <p className="text-white/70 text-sm">Powered by</p>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-[#E8E4EF] to-[#D2C5E7] group-hover:from-[#D2C5E7] group-hover:to-[#B19FDB] bg-clip-text text-transparent transition-all duration-300">
+                Mercure +<br />RTK Query
+              </h3>
+              <p className="text-white/70 text-sm">for live synchronization</p>
             </div>
           </MagicBento>
           
           <MagicBento
-            textAutoHide={true}
-            enableStars={true}
+            textAutoHide={false}
+            enableStars={false}
             enableSpotlight={true}
             enableBorderGlow={true}
-            enableTilt={false}
-            enableMagnetism={true}
+            enableTilt={true}
+            enableMagnetism={false}
             clickEffect={false}
             spotlightRadius={350}
-            particleCount={12}
-            glowColor="114, 46, 209"
-            className="backdrop-blur-md rounded-2xl p-6 transition-all duration-300"
+            particleCount={4}
+            glowColor="132, 0, 255"
+            className="md:col-span-2 bg-slate-800/50 backdrop-blur-md rounded-2xl border border-white/10 p-6 transition-all duration-300 flex items-center justify-center group"
           >
-            <div className="mb-4">
-              <h4 className="text-lg font-semibold text-white mb-2">Mercure + RTK Query</h4>
-              <p className="text-white/70 text-sm">Advanced queries</p>
+            <div className="text-center">
+              <p className="text-white/70 text-sm">more than</p>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-[#E8E4EF] to-[#D2C5E7] group-hover:from-[#D2C5E7] group-hover:to-[#B19FDB] bg-clip-text text-transparent transition-all duration-300">
+                19 000 hours
+              </h3>
+              <p className="text-white/70 text-sm">devoted to Pimcore Studio</p>
             </div>
           </MagicBento>
         </div>
@@ -88,20 +93,20 @@ const SecondContainer = () => {
         {/* Bottom Row - Smooth configurations Cards */}
         <div className="grid md:grid-cols-2 gap-4">
           <MagicBento
-            textAutoHide={true}
-            enableStars={true}
+            textAutoHide={false}
+            enableStars={false}
             enableSpotlight={true}
             enableBorderGlow={true}
-            enableTilt={false}
-            enableMagnetism={true}
+            enableTilt={true}
+            enableMagnetism={false}
             clickEffect={false}
             spotlightRadius={350}
-            particleCount={12}
-            glowColor="114, 46, 209"
+            particleCount={4}
+            glowColor="132, 0, 255"
             className="backdrop-blur-md rounded-2xl p-6 transition-all duration-300"
           >
             <div className="mb-4">
-              <h4 className="text-lg font-semibold text-white mb-2">Smooth configurations</h4>
+              <h3 className="text-lg font-semibold text-white mb-2">Smooth configurations</h3>
               <p className="text-white/70 text-sm leading-relaxed">Build your configurations with simple, structured JSON files. These config files allow you to define your desired layout with the greatest flexibility and control.</p>
               
               <div className="mt-6 bg-slate-800/50 rounded-lg p-4 flex items-center justify-center h-20">
@@ -115,20 +120,20 @@ const SecondContainer = () => {
           </MagicBento>
           
           <MagicBento
-            textAutoHide={true}
-            enableStars={true}
+            textAutoHide={false}
+            enableStars={false}
             enableSpotlight={true}
             enableBorderGlow={true}
-            enableTilt={false}
-            enableMagnetism={true}
+            enableTilt={true}
+            enableMagnetism={false}
             clickEffect={false}
             spotlightRadius={350}
-            particleCount={12}
-            glowColor="114, 46, 209"
+            particleCount={4}
+            glowColor="132, 0, 255"
             className="backdrop-blur-md rounded-2xl p-6 transition-all duration-300"
           >
             <div className="mb-4">
-              <h4 className="text-lg font-semibold text-white mb-2">Smooth configurations</h4>
+              <h3 className="text-lg font-semibold text-white mb-2">Smooth configurations</h3>
               <p className="text-white/70 text-sm leading-relaxed">Quick and straightforward way to control your UI/UX experience with few lines of config files.</p>
               
               <div className="mt-6 bg-slate-800/50 rounded-lg p-4 flex items-center justify-center h-20">

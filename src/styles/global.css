@@ -9,7 +9,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Remove smooth scrolling to avoid conflicts with Lenis */
+/* Ensure smooth scrolling is disabled for scroll hijacking */
 html {
   scroll-behavior: auto;
 }

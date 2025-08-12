@@ -3,12 +3,12 @@ import MagicBento from '../MagicBento';
 
 const MainContainer = () => {
   return (
-    <section className="relative px-3 py-12">
+    <section className="relative px-3 pt-0 pb-12">
       <div className="max-w-7xl mx-auto">
         {/* Main Heading */}
         <div className="mb-8">
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6 max-w-2xl">
-            Flexibility like never before
+            TL;DR - Let us show you!
           </h2>
         </div>
 
